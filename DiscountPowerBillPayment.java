@@ -7,9 +7,15 @@ public class DiscountPowerBillPayment extends browser{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		//Calling UsingChrome method from browser.java
 		driver = browser.UsingChrome("https://www.discountpowertx.com/");
+		
+		//maximizes screen
 		driver.manage().window().maximize();
+		
+		//Implicit wait
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
 		driver.findElement(By.linkText("My Account")).click();
 		
 		driver.findElement(By.id("username")).sendKeys("Enter username");
@@ -47,6 +53,8 @@ public class DiscountPowerBillPayment extends browser{
 				driver.findElement(By.linkText("Log Out")).click();
 			}
 		}
+		
+		//close all the browser instances
 		driver.quit();
 		
 		
