@@ -12,13 +12,13 @@ public class DiscountPowerBillPayment extends browser{
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.findElement(By.linkText("My Account")).click();
 		
-		driver.findElement(By.id("username")).sendKeys("samjohar92");
-		driver.findElement(By.id("password")).sendKeys("Samjohar92");
+		driver.findElement(By.id("username")).sendKeys("Enter username");
+		driver.findElement(By.id("password")).sendKeys("Enter password");
 		driver.findElement(By.id("logonButton")).click();
 		
 		String amountDue = driver.findElement(By.id("amountDue")).getText();
 		String customerDetails = driver.findElement(By.id("accountName")).getText();
-		if(customerDetails.equalsIgnoreCase("Inderpreet Singh Johar ( 72960200-3 )"))
+		if(customerDetails.equalsIgnoreCase("Full Name ( Account Number)"))
 		{
 			if(!amountDue.equals("$0.00"))
 			{
@@ -28,16 +28,16 @@ public class DiscountPowerBillPayment extends browser{
 				Select s1 = new Select(driver.findElement(By.id("cardType")));
 				s1.selectByValue("ZVIS");
 				
-				driver.findElement(By.id("cardNumber")).sendKeys("4266841591163421");
-				driver.findElement(By.id("cardCVV")).sendKeys("097");
+				driver.findElement(By.id("cardNumber")).sendKeys("Enter 16 digit card number");
+ 				driver.findElement(By.id("cardCVV")).sendKeys("Enter 3 digit CVV number");
 				
 				Select s2 = new Select(driver.findElement(By.id("cardExpMonth")));
-				s2.selectByValue("11");
+				s2.selectByValue("Select expiry month by value ranging from 1-12 ");
 				
 				Select s3 = new Select(driver.findElement(By.id("cardExpYear")));
-				s3.selectByValue("2023");
+				s3.selectByValue("Select expiry year");
 				
-				driver.findElement(By.id("cardZip")).sendKeys("75080");
+				driver.findElement(By.id("cardZip")).sendKeys("Enter 5 digit zip code");
 				
 				driver.findElement(By.linkText("Continue")).click();
 				driver.findElement(By.linkText("Submit Payment")).click();
